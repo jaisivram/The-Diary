@@ -24,11 +24,13 @@ body {
     text-align: center;
     width: 90%;
     max-width: 400px;
+    margin-top: 10px; /* Adjust margin-top to your preference */
 }
 
 /* Content styles */
 .content {
     margin: 0 auto;
+    word-wrap: break-word; /* Enable word wrapping */
 }
 
 h1 {
