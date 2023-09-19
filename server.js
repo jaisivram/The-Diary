@@ -49,6 +49,7 @@ app.get('/login', (req, res) => {
 // Login POST endpoint (authentication logic goes here)
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+  console.log(req.body)
   // Add your authentication logic here
 });
 
@@ -59,6 +60,8 @@ app.get('/signup', (req, res) => {
 
 // Signup POST endpoint (user registration logic goes here)
 app.post('/signup', (req, res) => {
+  const {username, email, password} = req.body;
+  console.log(req.body)
 });
 
 app.listen(port, () => {
