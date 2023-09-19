@@ -1,12 +1,12 @@
 const express = require('express');
+const https = require('https'); // Add this line for HTTPS
+const fs = require('fs'); // Add this line to read the certificate and key files
 const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
 const app = express();
-const port = 80;
+const port = 443; // Change the port to the default HTTPS port
 require('dotenv').config();
-
-
 
 // Dummy database for demonstration purposes
 AWS.config.update({
@@ -21,7 +21,6 @@ const dynamodb = new AWS.DynamoDB();
 // Define your DynamoDB table name
 const tableName = 'YourDynamoDBTableName';
 
-
 const users = [];
 
 // Middleware
@@ -29,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Define the path to the parent directory of server.js
 const parentDirectory = path.join(__dirname, '.');
-
 
 // Serve static files from the 'public' directory in the parent directory
 app.use(express.static(path.join(parentDirectory, 'frontend', 'public')));
@@ -49,7 +47,7 @@ app.get('/login', (req, res) => {
 // Login POST endpoint (authentication logic goes here)
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body)
+  console.log(req.body);
   // Add your authentication logic here
 });
 
@@ -60,10 +58,16 @@ app.get('/signup', (req, res) => {
 
 // Signup POST endpoint (user registration logic goes here)
 app.post('/signup', (req, res) => {
-  const {username, email, password} = req.body;
-  console.log(req.body)
+  const { username, email, password } = req.body;
+  console.log(req.body);
 });
 
-app.listen(port, () => {
+// Create an HTTPS server with your SSL certificate and key
+const server = https.createServer({
+  key: fs.readFileSync('/ssl/key.pem'),
+  cert: fs.readFileSync('/ssl/cert.crt'),
+}, app);
+
+server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
