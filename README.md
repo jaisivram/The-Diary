@@ -6,4 +6,4 @@
 
 #EC2 - pulls & runs latest image, deletes old 
 
-#site: http://65.1.107.83
+#site: bit.ly/jaisivramstalin
