@@ -6,4 +6,4 @@
 
 #EC2 - pulls & runs latest image, deletes old 
 
-#site: https://bit.ly/jaisivramstalin
+#site: https://bit.ly/The-Diary_
