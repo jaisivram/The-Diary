@@ -64,8 +64,8 @@ app.post('/signup', (req, res) => {
 
 // Create an HTTPS server with your SSL certificate and key
 const server = https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.crt'),
+  key: fs.readFileSync('/ssl/key.pem'),
+  cert: fs.readFileSync('/ssl/cert.crt'),
 }, app);
 
 server.listen(port, () => {
