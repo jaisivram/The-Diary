@@ -13,4 +13,4 @@ phases:
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
-      - docker push 756137667174.dkr.ecr.ap-south-1.amazonaws.com/the-diary-repo:latest
+      - docker push 756137667174.dkr.ecr.ap-south-1.amazonaws.com/the-diary-repo
