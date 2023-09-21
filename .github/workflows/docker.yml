@@ -19,7 +19,7 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       
     - name: remove old image
-      run: docker rmi -f the-diary-image:latest
+      run: docker rmi -f the-diary-repo:latest
       
     - uses: actions/checkout@v3
     
