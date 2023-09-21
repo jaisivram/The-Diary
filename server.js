@@ -3,26 +3,9 @@ const https = require('https'); // Add this line for HTTPS
 const fs = require('fs'); // Add this line to read the certificate and key files
 const bodyParser = require('body-parser');
 const path = require('path');
-const AWS = require('aws-sdk');
 const app = express();
 const port = 443; // Change the port to the default HTTPS port
 require('dotenv').config();
-
-// Dummy database for demonstration purposes
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION,
-});
-
-// Create a DynamoDB client
-const dynamodb = new AWS.DynamoDB();
-
-// Define your DynamoDB table name
-const tableName = 'YourDynamoDBTableName';
-
-const users = [];
-
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
