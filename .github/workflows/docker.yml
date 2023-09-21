@@ -21,10 +21,10 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the Docker image
-      run: docker build -t the-diary-image:$(date +%s) .
+      run: docker build -t the-diary-image:latest .
       
     - name: docker tag
-      run: docker tag the-diary-image:$(date +%s) jaisivram/the-diary-repo
+      run: docker tag the-diary-image:latest jaisivram/the-diary-repo
 
     - name: docker push 
       run: docker push jaisivram/the-diary-repo
