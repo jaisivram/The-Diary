@@ -19,10 +19,12 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       
     - uses: actions/checkout@v3
+    
     - name: Build the Docker image
-      run: 
-        docker build -t the-diary-image:$(date +%s) .
-        docker tag the-diary-image:$(date +%s) jaisivram/the-diary-repo
+      run: docker build -t the-diary-image:$(date +%s) .
+      
+    - name: docker tag
+      run: docker tag the-diary-image:$(date +%s) jaisivram/the-diary-repo
 
     - name: docker push 
       run: docker push jaisivram/the-diary-repo
