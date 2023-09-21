@@ -1,21 +1,13 @@
 # Use an official Node.js runtime as a parent image
 FROM node:20.3.1
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY .  .
 
-# Install application dependencies
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+EXPOSE 443
 
-# Expose the port that your Node.js application will run on
-EXPOSE 80
-
-# Define the command to start your application
 CMD [ "node", "server.js" ]
 
