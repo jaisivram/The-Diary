@@ -18,8 +18,8 @@ jobs:
         DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       
-    - name: remove old image
-      run: docker rmi -f the-diary-repo:latest
+#    - name: remove old image
+#      run: docker rmi -f the-diary-repo:latest
       
     - uses: actions/checkout@v3
     
