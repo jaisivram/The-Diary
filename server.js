@@ -4,7 +4,7 @@ const fs = require('fs'); // Add this line to read the certificate and key files
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const port = 443; // Change the port to the default HTTPS port
+const port = 443; 
 require('dotenv').config();
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
