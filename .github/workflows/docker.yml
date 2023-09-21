@@ -11,6 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    #- name: docker login
+    #  env: 
+    #    DOCKER_USER: ${{ secrets.DOCKER_USER }}
+    #    DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+    #  run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      
     - uses: actions/checkout@v3
+    
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag the-diary-image:$(date +%s)
+
+    #- name: docker push 
+    #  run: docker push the-diary-image:$(date +%s)
