@@ -23,7 +23,7 @@ jobs:
     - name: Build the Docker image
       run: 
         docker build -t the-diary-image:$(date +%s) .
-        docker tag the-diary-image:$(date +%s) jaisivram/the-diary-repo:$(date +%s)
+        docker tag the-diary-image:$(date +%s) jaisivram/the-diary-repo
 
     - name: docker push 
-      run: docker push jaisivram/the-diary-repo:$(date +%s)
+      run: docker push jaisivram/the-diary-repo
