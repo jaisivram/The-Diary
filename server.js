@@ -53,5 +53,5 @@ const server = https.createServer({
 }, app);
 
 server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`The Diary server is running on port ${port}`);
 });
